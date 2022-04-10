@@ -771,13 +771,20 @@ Return Value:
 					("卷目录为--%wZ！", nameInfo->Volume));
 				
 				WCHAR buffer[256] = { 0 };				
-				WCHAR name[] = L"\\2.txt";
+				WCHAR name[] = L"\\1.txt";
 				memcpy(buffer, nameInfo->Volume.Buffer, nameInfo->Volume.Length);
 				memcpy(buffer + (nameInfo->Volume.Length)/sizeof(WCHAR), name, sizeof(name));	//将重定向路径指向当前卷的根目录下的2.txt
 
 				//RtlCreateUnicodeString(&desFilename, L"\\Device\\HarddiskVolume1\\2.txt");//为了方便测试路径我写死了，实际操作也很简单仅仅只是字符串的拼接
 				RtlCreateUnicodeString(&desFilename, buffer);
 				
+				if (RtlEqualUnicodeString(&desFilename, &nameInfo->Name, FALSE))	//如果为文件本身，则不重定向
+				{
+					DbgPrint("打开文件为目标文件本身！\n");
+					FltReleaseFileNameInformation(nameInfo);
+					return FLT_PREOP_SUCCESS_WITH_CALLBACK;
+				}
+
 				PT_DBG_PRINT(PTDBG_TRACE_ROUTINES,
 					("重定向文件至--%wZ！", desFilename));
 
