@@ -1,0 +1,25 @@
+﻿生成启动时间为 2022/4/9 19:55:28。
+     1>项目“C:\Users\zhouyu\Desktop\MyFsFilter\MyFsFilter Package\MyFsFilter Package.vcxproj”在节点 2 上(Build 个目标)。
+     1>Inf2Cat:
+         C:\Program Files (x86)\Windows Kits\8.1\bin\x86\inf2cat.exe /os:6_3_x64 /driver:"C:\Users\zhouyu\Desktop\MyFsFilter\x64\Win8.1Debug\MyFsFilter Package\\" 
+         ........................
+         Signability test complete.
+         
+         Errors:
+         None
+         
+         Warnings:
+         None
+         
+         Catalog generation complete.
+         C:\Users\zhouyu\Desktop\MyFsFilter\x64\Win8.1Debug\MyFsFilter Package\myfsfilter.cat
+       DriverTestSign:
+         C:\Program Files (x86)\Windows Kits\8.1\bin\x86\signtool.exe sign /ph /sha1 "89E8B20B652CB9F7131117CE28A53E5FD1827ED1" 
+         Done Adding Additional Store
+         Successfully signed: C:\Users\zhouyu\Desktop\MyFsFilter\x64\Win8.1Debug\MyFsFilter Package\myfsfilter.cat
+         
+     1>已完成生成项目“C:\Users\zhouyu\Desktop\MyFsFilter\MyFsFilter Package\MyFsFilter Package.vcxproj”(Build 个目标)的操作。
+
+生成成功。
+
+已用时间 00:00:00.98
